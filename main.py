@@ -1,7 +1,7 @@
 from subito import *
 from datetime import datetime
-from platform import system
-from os import system
+import platform
+import os
 
 search_for = input("Inseriri i termini della ricerca: ")
 results = int(input("Numero di annunci da ricercare (minimo 100): "))
@@ -93,7 +93,7 @@ with open(time, mode="w") as reportfile:
     for line in ordered_results:
         reportfile.write(line[1])
 
-if system == "Windows":
-    system(time)
+if platform.system() == "Windows":
+    os.system(time)
 else:
-    system(f"xdg-open {time}")
+    os.system(f"xdg-open {time}")
