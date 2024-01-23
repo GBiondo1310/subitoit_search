@@ -88,7 +88,7 @@ with open("past_ads.json", mode="w") as jsonfile:
 ordered_results.sort(key=sort_by_price)
 
 
-time = f"{search_for.replace(" ", "_")}{int(datetime.now().timestamp())}.txt"
+time = f"{search_for.replace(' ', '_')}{int(datetime.now().timestamp())}.txt"
 with open(f"reports/{time}", mode="w") as reportfile:
     for line in ordered_results:
         reportfile.write(line[1])
