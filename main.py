@@ -88,12 +88,13 @@ with open("past_ads.json", mode="w") as jsonfile:
 ordered_results.sort(key=sort_by_price)
 
 
-time = f"reports/report{int(datetime.now().timestamp())}.txt"
-with open(time, mode="w") as reportfile:
+time = f"{search_for}{int(datetime.now().timestamp())}.txt"
+with open(f"reports/{time}", mode="w") as reportfile:
     for line in ordered_results:
         reportfile.write(line[1])
 
 if platform.system() == "Windows":
+    os.chdir("reports")
     os.system(time)
 else:
-    os.system(f"xdg-open {time}")
+    os.system(f"xdg-open reports/{time}")
